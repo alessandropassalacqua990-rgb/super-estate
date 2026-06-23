@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SUPER ESTATE · La tua trasformazione in 6 settimane</title>
+
+<!-- ============================================================
+     SUPER-ALE · LANDING "SUPER ESTATE"
+     Foto reali del brand collegate (cartella images/).
+     I 2 video di anteprima sono gli unici segnaposto rimasti:
+     cerca  >>> VIDEO  per sapere dove incollarli.
+     ============================================================ -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
+
+<style>
+/* ===== TOKEN BRAND SUPER-ALE ===== */
+:root{
+  --yellow:#f9c108; --yellow-soft:#fef3c7;
+  --blue:#2c42a8; --red:#9e1b2b;
+  --navy:#00225a; --navy-deep:#001640;
+  --paper:#fafaf7; --paper-warm:#f5f3ec; --white:#ffffff;
+  --ink:#1a1a2e; --ink-soft:#4a4a5e; --muted:#8a8a96;
+  --hairline:#e8e6df; --hairline-soft:#f0eee7;
+  --sand:#9d8763; /* fallback foto, mai nero */
+
+  --serif:'Fraunces',Georgia,serif;
+  --sans:'DM Sans',system-ui,sans-serif;
+  --maxw:1180px;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--sans);
+  background:var(--paper);
+  color:var(--ink);
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+em{font-style:italic}
+
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+section{padding:104px 0}
+
+/* ---- Tipografia helper ---- */
+.serif{font-family:var(--serif)}
+.eyebrow{
+  font-family:var(--sans);
+  font-weight:700;
+  font-size:13px;
+  letter-spacing:.22em;
+  text-transform:uppercase;
+  color:var(--red);
+  display:inline-flex;align-items:center;gap:14px;
+  margin-bottom:22px;
+}
+.eyebrow::before,.eyebrow::after{content:"";width:26px;height:1px;background:var(--red);opacity:.6}
+.eyebrow.solo::after{display:none}
+.eyebrow.on-dark{color:var(--yellow)}
+.eyebrow.on-dark::before,.eyebrow.on-dark::after{background:var(--yellow);opacity:.7}
+
+h1,h2,h3{font-family:var(--serif);font-weight:400;line-height:1.02;letter-spacing:-.01em}
+h2{font-size:clamp(32px,4.6vw,60px);font-variation-settings:'opsz' 144}
+h3{font-size:clamp(22px,2.4vw,30px);font-variation-settings:'opsz' 96}
+.lead{font-size:clamp(18px,1.5vw,21px);color:var(--ink-soft);max-width:640px}
+
+/* accento corsivo: rosso su chiaro, giallo su scuro */
+.acc-r{font-style:italic;color:var(--red)}
+.acc-y{font-style:italic;color:var(--yellow)}
+
+/* ---- Bottoni a pillola ---- */
+.btn{
+  display:inline-flex;align-items:center;gap:10px;
+  font-family:var(--sans);font-weight:700;font-size:16px;
+  padding:17px 32px;border-radius:999px;border:none;cursor:pointer;
+  transition:transform .2s ease, background .2s ease, color .2s ease, box-shadow .2s ease;
+}
+.btn-cta{background:var(--yellow);color:var(--navy);box-shadow:0 10px 30px rgba(249,193,8,.35)}
+.btn-cta:hover{transform:translateY(-2px);box-shadow:0 16px 40px rgba(249,193,8,.45)}
+.btn-dark{background:var(--navy);color:var(--white)}
+.btn-dark:hover{background:var(--ink);transform:translateY(-2px)}
+.btn-ghost{background:transparent;color:var(--white);border:1.5px solid rgba(255,255,255,.35)}
+.btn-ghost:hover{border-color:var(--yellow);color:var(--yellow)}
+.micro{font-size:13px;color:var(--muted);margin-top:14px}
+.micro.on-dark{color:rgba(255,255,255,.55)}
+
+/* =========================================================
+   FOTO REALI  (immagini brand al posto dei segnaposto)
+   ========================================================= */
+.shot{
+  position:relative;border-radius:24px;overflow:hidden;
+  background:var(--sand);min-height:260px;
+}
+.shot img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.shot .credit{
+  position:absolute;left:16px;bottom:14px;z-index:2;
+  font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;
+  color:#fff;background:rgba(0,34,90,.45);backdrop-filter:blur(3px);
+  padding:7px 12px;border-radius:999px;
+}
+
+/* =========================================================
+   SEGNAPOSTO VIDEO  (restano solo le 2 anteprime)
+   ========================================================= */
+.ph{
+  position:relative;border-radius:24px;overflow:hidden;
+  background:
+    repeating-linear-gradient(45deg,rgba(0,0,0,.04) 0 14px,transparent 14px 28px),
+    var(--sand);
+  display:flex;align-items:center;justify-content:center;
+  color:rgba(255,255,255,.92);text-align:center;
+  border:2px dashed rgba(255,255,255,.45);
+  min-height:260px;
+}
+.ph .ph-tag{
+  font-family:var(--sans);font-weight:600;font-size:13px;
+  letter-spacing:.04em;line-height:1.5;padding:14px 18px;
+  background:rgba(0,34,90,.55);border-radius:14px;backdrop-filter:blur(2px);
+  max-width:80%;
+}
+.ph .ph-tag b{display:block;font-size:11px;letter-spacing:.18em;text-transform:uppercase;opacity:.75;margin-bottom:6px}
+.ph.video .play{
+  width:64px;height:64px;border-radius:999px;background:var(--yellow);
+  display:flex;align-items:center;justify-content:center;
+  position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  box-shadow:0 8px 24px rgba(0,0,0,.3);z-index:3;
+}
+.ph.video .play::after{content:"";border-left:18px solid var(--navy);border-top:12px solid transparent;border-bottom:12px solid transparent;margin-left:4px}
+.ph.video .ph-tag{position:absolute;bottom:16px;left:16px;text-align:left;max-width:70%;z-index:3}
+/* poster reale dietro il bottone play */
+.ph.video.filled{border:none}
+.ph.video.filled img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
+.ph.video.filled::after{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(0,22,64,.15),rgba(0,22,64,.6))}
+
+/* video reale incorporato */
+.vid{width:100%;max-width:540px;margin:0 auto}
+.vid .frame{position:relative;border-radius:22px;overflow:hidden;background:#000;box-shadow:0 18px 40px rgba(0,34,90,.18)}
+.vid video{display:block;width:100%;height:auto}
+.vid figcaption{margin-top:14px;text-align:center;font-size:14px;color:var(--ink-soft)}
+.vid figcaption b{color:var(--ink);font-weight:700}
+/* copertina cliccabile */
+.vid .vplay{
+  position:absolute;inset:0;width:100%;height:100%;border:none;cursor:pointer;padding:0;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;
+  background:linear-gradient(180deg,rgba(0,22,64,.25) 0%,rgba(0,22,64,.15) 40%,rgba(0,22,64,.6) 100%);
+  color:#fff;transition:background .2s ease;
+}
+.vid .vplay:hover{background:linear-gradient(180deg,rgba(0,22,64,.18) 0%,rgba(0,22,64,.1) 40%,rgba(0,22,64,.5) 100%)}
+.vid .vplay-ic{width:74px;height:74px;border-radius:999px;background:var(--yellow);display:flex;align-items:center;justify-content:center;box-shadow:0 12px 30px rgba(0,0,0,.4);transition:transform .2s ease}
+.vid .vplay:hover .vplay-ic{transform:scale(1.07)}
+.vid .vplay-ic::after{content:"";border-left:24px solid var(--navy);border-top:15px solid transparent;border-bottom:15px solid transparent;margin-left:6px}
+.vid .vplay-txt{font-family:var(--sans);font-weight:700;font-size:15px;letter-spacing:.02em;background:rgba(0,34,90,.55);padding:10px 20px;border-radius:999px;backdrop-filter:blur(2px)}
+.vid .frame.playing .vplay{display:none}
+
+/* =========================================================
+   1. HERO
+   ========================================================= */
+.hero{
+  position:relative;min-height:100vh;display:flex;align-items:flex-end;
+  padding:0 0 72px;color:var(--white);overflow:hidden;
+}
+.hero-bg{
+  position:absolute;inset:0;z-index:0;
+  background:var(--sand);
+  background-image:url('images/hero.jpeg');
+  background-size:cover;background-position:center 28%;
+}
+.hero-overlay{
+  position:absolute;inset:0;z-index:1;
+  background:linear-gradient(180deg,rgba(0,22,64,.5) 0%,rgba(0,22,64,.18) 35%,rgba(0,22,64,.9) 100%);
+}
+.hero .wrap{position:relative;z-index:2;width:100%}
+.hero .eyebrow{color:var(--yellow)}
+.hero .eyebrow::before,.hero .eyebrow::after{background:var(--yellow)}
+.hero h1{
+  font-size:clamp(44px,8.5vw,116px);
+  font-variation-settings:'opsz' 144;
+  max-width:14ch;margin-bottom:24px;
+}
+.hero p.sub{font-size:clamp(17px,1.7vw,22px);color:rgba(255,255,255,.9);max-width:600px;margin-bottom:34px}
+.hero-cta{display:flex;flex-wrap:wrap;gap:14px;align-items:center}
+
+/* badge "vetro" */
+.glass-badge{
+  position:absolute;top:34px;right:24px;z-index:2;
+  display:inline-flex;align-items:center;gap:10px;
+  background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);
+  backdrop-filter:blur(8px);border-radius:999px;
+  padding:10px 18px;font-size:13px;font-weight:600;color:#fff;
+}
+.glass-badge .dot{width:8px;height:8px;border-radius:999px;background:var(--yellow);box-shadow:0 0 0 4px rgba(249,193,8,.25)}
+
+/* logo angolo */
+.hero-logo{position:absolute;top:30px;left:24px;z-index:2;font-weight:700;letter-spacing:.14em;font-size:15px;color:#fff}
+.hero-logo span{color:var(--yellow)}
+
+/* scroll cue */
+.scroll-cue{position:absolute;bottom:26px;left:50%;transform:translateX(-50%);z-index:4;color:rgba(255,255,255,.9);font-size:11px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;display:flex;flex-direction:column;align-items:center;gap:12px;text-align:center}
+.scroll-cue .chev{width:22px;height:22px;border-right:2.5px solid rgba(255,255,255,.85);border-bottom:2.5px solid rgba(255,255,255,.85);transform:rotate(45deg);animation:cue 1.5s ease-in-out infinite}
+@keyframes cue{0%{opacity:.25;transform:rotate(45deg) translate(-4px,-4px)}50%{opacity:1;transform:rotate(45deg) translate(0,0)}100%{opacity:.25;transform:rotate(45deg) translate(4px,4px)}}
+
+/* =========================================================
+   2. STRIP urgenza / valore
+   ========================================================= */
+.strip{background:var(--navy);color:#fff;padding:26px 0}
+.strip .wrap{display:flex;flex-wrap:wrap;gap:18px 40px;align-items:center;justify-content:center;text-align:center}
+.strip-item{font-size:15px;display:flex;align-items:center;gap:10px;color:rgba(255,255,255,.85)}
+.strip-item b{color:var(--yellow)}
+.strip-item .ic{color:var(--yellow);font-weight:700}
+
+/* =========================================================
+   3. IL PROBLEMA
+   ========================================================= */
+.problema{background:var(--paper-warm)}
+.problema .grid{display:grid;grid-template-columns:1.1fr .9fr;gap:64px;align-items:center}
+.problema p{margin-top:20px;font-size:18px;color:var(--ink-soft);max-width:52ch}
+.problema .shot{min-height:480px}
+
+/* =========================================================
+   4. LA SOLUZIONE (sezione scura)
+   ========================================================= */
+.soluzione{background:var(--navy);color:#fff}
+.soluzione .grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:64px;align-items:center}
+.soluzione .lead{color:rgba(255,255,255,.82)}
+.soluzione p.body{margin-top:20px;color:rgba(255,255,255,.72);font-size:17px;max-width:52ch}
+.soluzione .shot{min-height:480px}
+
+/* =========================================================
+   5. COSA OTTIENI — value stack
+   ========================================================= */
+.valore .head{text-align:center;max-width:680px;margin:0 auto 56px}
+.valore .head .lead{margin:18px auto 0}
+.stack{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;max-width:920px;margin:0 auto}
+.item{
+  display:grid;grid-template-columns:auto 1fr;gap:6px 16px;align-items:start;
+  background:var(--white);border:1px solid var(--hairline);border-radius:20px;
+  padding:26px 28px;position:relative;overflow:hidden;
+}
+.item::before{content:"";position:absolute;top:-40px;right:-40px;width:120px;height:120px;border-radius:999px;background:radial-gradient(circle,rgba(249,193,8,.14),transparent 70%)}
+.item .chk{grid-row:1/3;width:32px;height:32px;border-radius:999px;background:var(--yellow);color:var(--navy);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:15px;position:relative;margin-top:2px}
+.item .t{grid-column:2;font-family:var(--serif);font-size:20px;font-variation-settings:'opsz' 72;position:relative}
+.item .d{grid-column:2;color:var(--ink-soft);font-size:14.5px;position:relative}
+.pkgnote{text-align:center;max-width:920px;margin:30px auto 0;font-family:var(--serif);font-size:clamp(20px,2.2vw,26px);font-variation-settings:'opsz' 96;color:var(--ink)}
+
+.pricerow{
+  max-width:920px;margin:34px auto 0;
+  display:flex;flex-wrap:wrap;gap:20px;align-items:center;justify-content:space-between;
+  background:var(--navy);color:#fff;border-radius:24px;padding:30px 36px;
+}
+.pricerow .left{display:flex;align-items:baseline;gap:18px;flex-wrap:wrap}
+.pricerow .was{text-decoration:line-through;color:rgba(255,255,255,.5);font-size:22px}
+.pricerow .now{font-family:var(--serif);font-size:clamp(40px,6vw,64px);color:var(--yellow);font-variation-settings:'opsz' 144;line-height:1}
+.pricerow .now small{font-size:18px;color:rgba(255,255,255,.7);font-family:var(--sans);margin-left:6px}
+.pricerow .note{font-size:13px;color:rgba(255,255,255,.6);margin-top:4px}
+
+/* =========================================================
+   6. VIDEO WORKOUT / ALLENATI OVUNQUE
+   ========================================================= */
+.workout{background:var(--paper-warm)}
+.workout .head{max-width:680px;margin-bottom:48px}
+.vgrid{display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:start;justify-items:center;scroll-margin-top:40px}
+.vgrid .ph{min-height:360px}
+.vgrid .ph .ph-tag b{color:var(--yellow)}
+.workout .undernote{text-align:center;margin-top:34px;color:var(--ink-soft);font-size:15px}
+/* screenshot prova "dentro la community" */
+.proof{max-width:920px;margin:54px auto 0;display:grid;grid-template-columns:1.15fr .85fr;gap:40px;align-items:center}
+.proof .shot{min-height:300px;border:1px solid var(--hairline);background:var(--white)}
+.proof .shot img{object-fit:contain;padding:0}
+.proof h3{margin-bottom:14px}
+.proof p{color:var(--ink-soft);font-size:16px;max-width:46ch}
+@media(max-width:760px){.proof{grid-template-columns:1fr;gap:24px}}
+
+/* =========================================================
+   7. LE 6 SETTIMANE — signature timeline
+   ========================================================= */
+.weeks{background:var(--navy);color:#fff}
+.weeks .head{text-align:center;max-width:640px;margin:0 auto 60px}
+.weeks .head .lead{color:rgba(255,255,255,.78);margin:18px auto 0}
+.timeline{display:grid;grid-template-columns:repeat(6,1fr);gap:0;position:relative;max-width:1080px;margin:0 auto}
+.timeline::before{content:"";position:absolute;top:46px;left:8%;right:8%;height:2px;background:linear-gradient(90deg,rgba(255,255,255,.12),var(--yellow) 85%)}
+.wk{position:relative;padding:0 12px;text-align:center}
+.wk .num{
+  font-family:var(--serif);font-size:34px;font-variation-settings:'opsz' 144;
+  width:64px;height:64px;margin:0 auto 22px;border-radius:999px;
+  background:var(--navy-deep);border:2px solid rgba(255,255,255,.25);
+  display:flex;align-items:center;justify-content:center;position:relative;z-index:1;
+  transition:border-color .3s,background .3s;
+}
+.wk:last-child .num{background:var(--yellow);color:var(--navy);border-color:var(--yellow)}
+.wk .wt{font-family:var(--serif);font-size:18px;font-variation-settings:'opsz' 72;margin-bottom:8px}
+.wk .wd{font-size:13px;color:rgba(255,255,255,.6);line-height:1.45}
+.wk:hover .num{border-color:var(--yellow)}
+
+/* =========================================================
+   8. PER CHI È / PER CHI NO
+   ========================================================= */
+.forwho .cols{display:grid;grid-template-columns:1fr 1fr;gap:24px;max-width:980px;margin:48px auto 0}
+.forwho .cols.single{grid-template-columns:1fr;max-width:640px}
+.col{border-radius:24px;padding:38px 36px;border:1px solid var(--hairline)}
+.col.yes{background:var(--white)}
+.col.no{background:var(--paper-warm)}
+.col h3{margin-bottom:22px;display:flex;align-items:center;gap:12px}
+.col .mark{width:34px;height:34px;border-radius:999px;display:flex;align-items:center;justify-content:center;font-weight:700;flex:none}
+.col.yes .mark{background:var(--yellow);color:var(--navy)}
+.col.no .mark{background:var(--red);color:#fff}
+.col ul{list-style:none;display:flex;flex-direction:column;gap:14px}
+.col li{font-size:16px;color:var(--ink-soft);padding-left:26px;position:relative}
+.col li::before{content:"";position:absolute;left:0;top:9px;width:8px;height:8px;border-radius:999px}
+.col.yes li::before{background:var(--yellow)}
+.col.no li::before{background:var(--red);opacity:.6}
+
+/* =========================================================
+   8b. FEEDBACK / TESTIMONIANZE
+   ========================================================= */
+.feedback{background:var(--paper-warm)}
+.feedback .head{text-align:center;max-width:660px;margin:0 auto 54px}
+.feedback .head .lead{margin:18px auto 0}
+.fbgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;max-width:980px;margin:0 auto}
+.fbcard{
+  background:var(--white);border:1px solid var(--hairline);border-radius:22px;
+  padding:30px 32px;display:flex;flex-direction:column;gap:14px;
+  box-shadow:0 12px 30px rgba(0,34,90,.05);position:relative;overflow:hidden;
+}
+.fbcard::before{content:"";position:absolute;top:-30px;right:-30px;width:110px;height:110px;border-radius:999px;background:radial-gradient(circle,rgba(249,193,8,.12),transparent 70%)}
+.fbstars{color:var(--yellow);font-size:17px;letter-spacing:4px;line-height:1;position:relative}
+.fbcard .ft{font-family:var(--serif);font-size:19px;font-variation-settings:'opsz' 72;color:var(--ink);position:relative}
+.fbcard .fq{color:var(--ink-soft);font-size:15.5px;line-height:1.62;flex:1;position:relative;font-style:normal}
+.fbcard .fn{display:flex;align-items:center;gap:12px;margin-top:8px;position:relative}
+.fbcard .fav{width:40px;height:40px;border-radius:999px;background:var(--navy);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;letter-spacing:.02em;flex:none}
+.fbcard .fnname{font-weight:600;font-size:15px;color:var(--ink);line-height:1.25}
+.fbcard .fnname small{display:block;font-weight:400;color:var(--muted);font-size:12.5px}
+@media(max-width:760px){.fbgrid{grid-template-columns:1fr}}
+
+/* =========================================================
+   8c. RISULTATI (prima / dopo)
+   ========================================================= */
+.risultati{background:var(--navy);color:#fff}
+.risultati .head{text-align:center;max-width:680px;margin:0 auto 50px}
+.risultati .head .lead{color:rgba(255,255,255,.8);margin:18px auto 0}
+.rgrid{display:grid;grid-template-columns:1fr 1fr;gap:30px;max-width:840px;margin:0 auto;align-items:start}
+.rcard{margin:0}
+.rcard img{width:100%;height:auto;display:block;border-radius:18px;border:1px solid rgba(255,255,255,.12);box-shadow:0 20px 50px rgba(0,0,0,.35)}
+.rcard figcaption{text-align:center;margin-top:16px;font-size:15px;color:rgba(255,255,255,.85)}
+.rcard figcaption b{color:var(--yellow);font-weight:700}
+.rnote{text-align:center;max-width:680px;margin:40px auto 0;font-size:13px;color:rgba(255,255,255,.5)}
+@media(max-width:760px){.rgrid{grid-template-columns:1fr;max-width:420px;gap:40px}}
+
+/* =========================================================
+   9. TESTIMONIANZA
+   ========================================================= */
+.testi{background:var(--navy);color:#fff}
+.testi .wrap{max-width:900px;text-align:center}
+.testi .quote{font-family:var(--serif);font-size:clamp(24px,3.4vw,40px);line-height:1.28;font-variation-settings:'opsz' 144;margin:26px 0 28px}
+.testi .quote em{color:var(--yellow)}
+.testi .nums{display:flex;gap:48px;justify-content:center;flex-wrap:wrap;margin-top:34px}
+.testi .nums div{font-size:14px;color:rgba(255,255,255,.7)}
+.testi .nums b{display:block;font-family:var(--serif);font-size:40px;color:var(--yellow);font-variation-settings:'opsz' 144;line-height:1}
+.testi .who{margin-top:30px;color:rgba(255,255,255,.6);font-size:14px}
+
+/* =========================================================
+   10. OFFERTA FINALE + GARANZIA
+   ========================================================= */
+.offer{background:var(--paper-warm)}
+.offer .card{
+  max-width:760px;margin:0 auto;background:var(--navy);color:#fff;
+  border-radius:28px;padding:56px 48px;text-align:center;position:relative;overflow:hidden;
+}
+.offer .card::before{content:"";position:absolute;top:-80px;left:50%;transform:translateX(-50%);width:380px;height:380px;border-radius:999px;background:radial-gradient(circle,rgba(249,193,8,.18),transparent 65%)}
+.offer .card>*{position:relative}
+.offer h2{color:#fff;margin-bottom:18px}
+.offer .bigprice{display:flex;align-items:baseline;gap:16px;justify-content:center;margin:24px 0 8px}
+.offer .bigprice .was{text-decoration:line-through;color:rgba(255,255,255,.45);font-size:26px}
+.offer .bigprice .now{font-family:var(--serif);font-size:84px;color:var(--yellow);font-variation-settings:'opsz' 144;line-height:1}
+.offer .valnote{color:rgba(255,255,255,.65);font-size:15px;margin-bottom:30px}
+.offer .valnote s{color:rgba(255,255,255,.4)}
+.guarantee{
+  display:flex;align-items:center;gap:16px;justify-content:center;
+  margin-top:30px;padding-top:26px;border-top:1px solid rgba(255,255,255,.15);
+  color:rgba(255,255,255,.8);font-size:15px;text-align:left;max-width:520px;margin-left:auto;margin-right:auto;
+}
+.guarantee .seal{width:48px;height:48px;border-radius:999px;border:2px solid var(--yellow);color:var(--yellow);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;flex:none}
+
+/* =========================================================
+   11. FAQ
+   ========================================================= */
+.faq .wrap{max-width:780px}
+.faq .head{margin-bottom:44px}
+.qa{border-bottom:1px solid var(--hairline)}
+.qa button{
+  width:100%;background:none;border:none;cursor:pointer;text-align:left;
+  display:flex;justify-content:space-between;align-items:center;gap:20px;
+  padding:24px 0;font-family:var(--serif);font-size:20px;color:var(--ink);
+  font-variation-settings:'opsz' 72;
+}
+.qa .ic{flex:none;width:30px;height:30px;border-radius:999px;border:1.5px solid var(--hairline);display:flex;align-items:center;justify-content:center;font-size:20px;color:var(--red);transition:transform .25s}
+.qa.open .ic{transform:rotate(45deg);border-color:var(--red)}
+.qa .ans{max-height:0;overflow:hidden;transition:max-height .3s ease}
+.qa .ans p{padding:0 0 24px;color:var(--ink-soft);font-size:16px;max-width:62ch}
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+footer{background:var(--navy-deep);color:#fff;padding:72px 0 40px;text-align:center}
+footer .logo{font-weight:700;letter-spacing:.16em;font-size:22px;margin-bottom:16px}
+footer .logo span{color:var(--yellow)}
+footer .sign{font-family:var(--serif);font-style:italic;font-size:24px;color:var(--yellow);margin:8px 0 28px;font-variation-settings:'opsz' 96}
+footer .small{color:rgba(255,255,255,.45);font-size:13px}
+
+/* =========================================================
+   ANIMAZIONI ingresso
+   ========================================================= */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
+.reveal.in{opacity:1;transform:none}
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+@media(max-width:920px){
+  section{padding:76px 0}
+  .problema .grid,.soluzione .grid{grid-template-columns:1fr;gap:40px}
+  .stack{grid-template-columns:1fr}
+  .vgrid{grid-template-columns:1fr}
+  .timeline{grid-template-columns:1fr 1fr 1fr;gap:36px 0}
+  .timeline::before{display:none}
+  .forwho .cols{grid-template-columns:1fr}
+  .glass-badge{display:none}
+}
+@media(max-width:560px){
+  .timeline{grid-template-columns:1fr 1fr}
+  .offer .card{padding:40px 24px}
+  .offer .bigprice .now{font-size:64px}
+  .pricerow{flex-direction:column;align-items:flex-start;text-align:left}
+  .testi .nums{gap:28px}
+}
+@media(prefers-reduced-motion:reduce){
+  *{animation:none!important}
+  .reveal{opacity:1;transform:none;transition:none}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+
+<!-- ===================== HERO ===================== -->
+<header class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+
+  <div class="hero-logo">SUPER<span>-</span>ALE</div>
+  <div class="glass-badge"><span class="dot"></span> La sfida è aperta · prezzo di lancio</div>
+
+  <div class="wrap">
+    <span class="eyebrow">La sfida di 6 settimane</span>
+    <h1 class="serif">La tua <em class="acc-y">trasformazione</em> in 6 settimane.</h1>
+    <p class="sub">Il programma per asciugarti, mandare giù la pancia e tirare fuori gli addominali allenandoti <strong>dove vuoi e quando vuoi</strong>. Senza palestra. Senza scorciatoie.</p>
+  </div>
+
+  <div class="scroll-cue"><span>scorri per scoprire</span><span class="chev"></span></div>
+</header>
+
+<!-- ===================== STRIP ===================== -->
+<div class="strip">
+  <div class="wrap">
+    <span class="strip-item"><span class="ic">✓</span> <b>24 video</b> · 6 settimane</span>
+    <span class="strip-item"><span class="ic">✓</span> Senza palestra né attrezzi</span>
+    <span class="strip-item"><span class="ic">✓</span> Full body + addominali</span>
+  </div>
+</div>
+
+<!-- ===================== IL PROBLEMA ===================== -->
+<section class="problema">
+  <div class="wrap">
+    <div class="grid">
+      <div class="reveal">
+        <span class="eyebrow">Parliamoci chiaro</span>
+        <h2>Ogni giugno la maglietta larga diventa la tua <em class="acc-r">divisa.</em></h2>
+        <p>Ti dici che inizi "da lunedì", ma la palestra è lontana, il tempo è poco e tra poco sei pure in vacanza. Così rimandi.</p>
+        <p>Il punto non è la tua forza di volontà. È che ti manca un piano semplice da seguire ovunque, e qualcuno che ti dica esattamente cosa fare, giorno per giorno.</p>
+      </div>
+      <div class="shot reveal">
+        <img src="images/problema-spiaggia.jpg" alt="Alessandro Super-Ale in spiaggia">
+        <span class="credit">Super-Ale</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== LA SOLUZIONE ===================== -->
+<section class="soluzione">
+  <div class="wrap">
+    <div class="grid">
+      <div class="shot reveal">
+        <img src="images/specchio.jpg" alt="Alessandro Super-Ale">
+      </div>
+      <div class="reveal">
+        <span class="eyebrow on-dark">La soluzione</span>
+        <h2>Un programma che fai <em class="acc-y">dove vuoi.</em></h2>
+        <p class="lead">24 allenamenti video a corpo libero, brevi (15-30 minuti): full body per la struttura, addominali per il core. Due sessioni a settimana, dove vuoi.</p>
+        <p class="body">Niente attrezzi, niente palestra, niente scuse. Solo tu, lo spazio di un tappetino e una squadra che si allena insieme a te. Tutto naturale e sostenibile, alla tua portata.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== VIDEO WORKOUT ===================== -->
+<section class="workout" id="video">
+  <div class="wrap">
+    <div class="head reveal">
+      <span class="eyebrow">Video workout · Full body + Abs</span>
+      <h2>Apri il telefono, premi play, ti <em class="acc-r">alleni.</em></h2>
+      <p class="lead">24 sessioni guidate a corpo libero: 12 Full Body + 12 Abs, da 15-30 minuti. Le segui in camera, al parco o in spiaggia, la scusa della palestra non esiste più. Qui sotto un assaggio.</p>
+    </div>
+
+    <!-- >>> VIDEO: queste sono le 2 ANTEPRIME. Sostituisci ogni blocco .ph.video
+            con un <div class="vid"><video controls poster="..."><source src="TUO-VIDEO.mp4"></video></div>
+            oppure con un <iframe> YouTube/Vimeo. Gli altri 24 stanno dentro il prodotto. -->
+    <div class="vgrid" id="anteprime">
+      <figure class="vid reveal">
+        <div class="frame">
+          <video playsinline preload="metadata" poster="images/poster-fullbody.png">
+            <source src="images/video-fullbody.mp4" type="video/mp4">
+            Il tuo browser non supporta il video.
+          </video>
+          <button class="vplay" type="button" aria-label="Riproduci anteprima Full Body">
+            <span class="vplay-ic"></span>
+            <span class="vplay-txt">Clicca qui per l'anteprima</span>
+          </button>
+        </div>
+        <figcaption><b>Full Body</b> · esempio di sessione</figcaption>
+      </figure>
+      <figure class="vid reveal">
+        <div class="frame">
+          <video playsinline preload="metadata" poster="images/poster-abs.png">
+            <source src="images/video-abs.mp4" type="video/mp4">
+            Il tuo browser non supporta il video.
+          </video>
+          <button class="vplay" type="button" aria-label="Riproduci anteprima Abs">
+            <span class="vplay-ic"></span>
+            <span class="vplay-txt">Clicca qui per l'anteprima</span>
+          </button>
+        </div>
+        <figcaption><b>Abs &amp; Core</b> · esempio di sessione</figcaption>
+      </figure>
+    </div>
+    <p class="undernote reveal">Niente attrezzi. Basta lo spazio di un tappetino e 15-30 minuti, due volte a settimana.</p>
+  </div>
+</section>
+
+<!-- ===================== RISULTATI ===================== -->
+<section class="risultati" id="risultati">
+  <div class="wrap">
+    <div class="head reveal">
+      <span class="eyebrow on-dark solo" style="justify-content:center">I risultati</span>
+      <h2>Funziona. E si <em class="acc-y">vede.</em></h2>
+      <p class="lead">Trasformazioni reali di chi ha seguito il metodo SUPER-ALE: stesso impegno, dove vuoi e quando vuoi.</p>
+    </div>
+
+    <div class="rgrid">
+      <figure class="rcard reveal">
+        <img src="images/risultato-2mesi.png" alt="Trasformazione 2 mesi: -7,8 kg di grasso, +3,7 kg di muscolo">
+        <figcaption><b>Primi 2 mesi</b> · −7,8 kg di grasso, +3,7 kg di muscolo</figcaption>
+      </figure>
+      <figure class="rcard reveal">
+        <img src="images/risultato-1mese.png" alt="Ricomposizione in 1 mese: +1,4 kg di muscolo, -6 cm addome">
+        <figcaption><b>In 1 mese</b> · +1,4 kg di muscolo, −6 cm di addome</figcaption>
+      </figure>
+    </div>
+
+    <p class="rnote reveal">Foto e misurazioni reali dei clienti. I risultati possono variare in base a costanza, alimentazione e punto di partenza.</p>
+  </div>
+</section>
+
+<!-- ===================== FEEDBACK ===================== -->
+<section class="feedback" id="feedback">
+  <div class="wrap">
+    <div class="head reveal">
+      <span class="eyebrow solo" style="justify-content:center">Cosa dice la squadra</span>
+      <h2>Non lo dico io. Lo dicono <em class="acc-r">loro.</em></h2>
+      <p class="lead">Feedback veri di chi sta già facendo la sfida dentro la community SUPER-ALE.</p>
+    </div>
+
+    <div class="fbgrid">
+      <figure class="fbcard reveal">
+        <div class="fbstars">★★★★★</div>
+        <div class="ft">Secondo allenamento</div>
+        <blockquote class="fq">"Fatto allenamento corpo libero 22min della seconda settimana, domani si entra nella terza. Tutto meraviglioso, riuscita al 75%, sono già molto più elastica e produttiva rispetto all'inizio… il giorno in cui riuscirò a fare anche solo uno di questi maledetti mi filmerò e lo urlerò al mondo. 🥵😏"</blockquote>
+        <figcaption class="fn"><span class="fav">IP</span><span class="fnname">Ilaria P<small>Membro della community</small></span></figcaption>
+      </figure>
+
+      <figure class="fbcard reveal">
+        <div class="fbstars">★★★★★</div>
+        <div class="ft">Sono ko</div>
+        <blockquote class="fq">"Mi sa che abbiamo provato tutti il circuito addominali e oggi siamo ko 🤣"</blockquote>
+        <figcaption class="fn"><span class="fav">DP</span><span class="fnname">Diego P<small>Membro della community</small></span></figcaption>
+      </figure>
+
+      <figure class="fbcard reveal">
+        <div class="fbstars">★★★★★</div>
+        <div class="ft">Primo workout addominali</div>
+        <blockquote class="fq">"L'allenamento core di oggi ha messo a nudo quanto rasenta lo ZERO, il livello da cui sto ripartendo 😅 Però è molto bello, completo e stimolante. Adesso prendo fiato e lo rifaccio va 😅"</blockquote>
+        <figcaption class="fn"><span class="fav">NS</span><span class="fnname">Noemi S<small>Membro della community</small></span></figcaption>
+      </figure>
+
+      <figure class="fbcard reveal">
+        <div class="fbstars">★★★★★</div>
+        <div class="ft">Quello che stavo cercando</div>
+        <blockquote class="fq">"Con 3 figli piccoli era proprio quello che ci voleva 😊 Allenamento Full body completo senza bisogno di nessun attrezzo… così mentre i piccoli dormono noi ci alleniamo 💪🏻💪🏻💪🏻"</blockquote>
+        <figcaption class="fn"><span class="fav">EP</span><span class="fnname">Emanuela P<small>Membro della community</small></span></figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== COSA OTTIENI ===================== -->
+<section class="valore" id="cosa-ottieni">
+  <div class="wrap">
+    <div class="head reveal">
+      <span class="eyebrow solo" style="justify-content:center">Cosa ottieni</span>
+      <h2>Tutto quello che ti serve per <em class="acc-r">sei settimane.</em></h2>
+      <p class="lead">Un percorso completo di full body e addominali, già organizzato per sei settimane.</p>
+    </div>
+
+    <div class="stack">
+      <div class="item reveal">
+        <span class="chk">✓</span>
+        <div class="t">12 video Full Body progressivi</div>
+        <div class="d">Sessioni a corpo libero da 15-30 min, che salgono di intensità settimana dopo settimana. Zero attrezzi.</div>
+      </div>
+      <div class="item reveal">
+        <span class="chk">✓</span>
+        <div class="t">12 video Abs &amp; Core</div>
+        <div class="d">Routine dedicate per tirare fuori gli addominali, una per ogni sessione del percorso.</div>
+      </div>
+      <div class="item reveal">
+        <span class="chk">✓</span>
+        <div class="t">Programma 6 settimane già pronto</div>
+        <div class="d">Il calendario è fatto: sai cosa allenare ogni giorno, con la giusta progressione. Apri e segui.</div>
+      </div>
+      <div class="item reveal">
+        <span class="chk">✓</span>
+        <div class="t">La Sfida nel Club, con la squadra</div>
+        <div class="d">Fai il percorso dentro la community SUPER-ALE: non ti alleni da solo. E i video restano tuoi a vita.</div>
+      </div>
+    </div>
+
+    <p class="pkgnote reveal">Un unico pacchetto. Un unico prezzo. Lo paghi una volta e resta tuo.</p>
+  </div>
+</section>
+
+<!-- ===================== LE 6 SETTIMANE ===================== -->
+<section class="weeks" id="percorso">
+  <div class="wrap">
+    <div class="head reveal">
+      <span class="eyebrow on-dark solo" style="justify-content:center">Il percorso</span>
+      <h2>Sei settimane. Una <em class="acc-y">progressione.</em></h2>
+      <p class="lead">2 Full Body + 2 Abs a settimana: 4 video nuovi ogni volta, mai ripetuti. Si parte leggeri e si sale, fino alla spiaggia.</p>
+    </div>
+
+    <div class="timeline">
+      <div class="wk reveal"><div class="num">1</div><div class="wt">Reset &amp; Base</div><div class="wd">2 Full Body + 2 Abs. Entri nel ritmo senza farti male.</div></div>
+      <div class="wk reveal"><div class="num">2</div><div class="wt">Motore acceso</div><div class="wd">2 Full Body + 2 Abs. Si alza il volume di lavoro.</div></div>
+      <div class="wk reveal"><div class="num">3</div><div class="wt">Brucia</div><div class="wd">2 Full Body + 2 Abs. Circuiti più intensi, si accelera.</div></div>
+      <div class="wk reveal"><div class="num">4</div><div class="wt">Definizione</div><div class="wd">2 Full Body + 2 Abs. Focus sul core e sulla densità.</div></div>
+      <div class="wk reveal"><div class="num">5</div><div class="wt">Picco</div><div class="wd">2 Full Body + 2 Abs. Massima intensità sostenibile.</div></div>
+      <div class="wk reveal"><div class="num">6</div><div class="wt">Asciuga &amp; Mostra</div><div class="wd">2 Full Body + 2 Abs. Rifinitura, foto before/after. Pronto.</div></div>
+    </div>
+
+    <p class="undernote reveal" style="text-align:center;color:rgba(255,255,255,.65);margin-top:40px;font-size:15px">
+      <strong style="color:#fff">Settimana tipo:</strong> 2 giorni di allenamento, sessione = Full Body + Abs (~25-30 min). Hai poco tempo? Spezzala in 4 sessioni brevi.
+    </p>
+  </div>
+</section>
+
+<!-- ===================== PER CHI ===================== -->
+<section class="forwho">
+  <div class="wrap">
+    <div class="head reveal" style="text-align:center;max-width:640px;margin:0 auto">
+      <span class="eyebrow solo" style="justify-content:center">È per te?</span>
+      <h2>Questa challenge è fatta <em class="acc-r">per te.</em></h2>
+    </div>
+    <div class="cols single">
+      <div class="col yes reveal">
+        <h3><span class="mark">✓</span> È per te se</h3>
+        <ul>
+          <li>Hai delle vacanze programmate ma non hai la palestra</li>
+          <li>Non hai voglia di andare in palestra</li>
+          <li>Vuoi allenarti da casa ma non hai attrezzi</li>
+          <li>Hai poco tempo e vuoi un piano chiaro da seguire</li>
+          <li>Vuoi arrivare in forma per l'estate, davvero</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== OFFERTA FINALE ===================== -->
+<section class="offer" id="offerta">
+  <div class="wrap">
+    <div class="card reveal">
+      <span class="eyebrow on-dark solo" style="justify-content:center">Prezzo di lancio</span>
+      <h2>Meno di un caffè al giorno, per sei settimane.</h2>
+      <div class="bigprice">
+        <span class="was">€49</span>
+        <span class="now">€39</span>
+      </div>
+      <p class="valnote">Valore reale del pacchetto <s>€49</s> · oggi <strong style="color:#fff">€39</strong>, paghi una volta sola.</p>
+      <a href="https://metodo-super-ale.circle.so/checkout/super-estate" target="_blank" rel="noopener" class="btn btn-cta" style="font-size:18px;padding:19px 40px">Voglio iniziare ora · €39 →</a>
+      <p class="micro on-dark">Accesso immediato dentro la community SUPER-ALE · i video restano tuoi a vita</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FAQ ===================== -->
+<section class="faq">
+  <div class="wrap">
+    <div class="head reveal">
+      <span class="eyebrow">Domande</span>
+      <h2>Le cose che ti stai <em class="acc-r">chiedendo.</em></h2>
+    </div>
+
+    <div class="qa reveal">
+      <button>Mi serve la palestra o degli attrezzi?<span class="ic">+</span></button>
+      <div class="ans"><p>No. Tutto a corpo libero, lo fai dove vuoi: basta lo spazio di un tappetino.</p></div>
+    </div>
+    <div class="qa reveal">
+      <button>Quanto tempo richiede a settimana?<span class="ic">+</span></button>
+      <div class="ans"><p>Due sessioni da 15-30 minuti: Full Body + Abs. Se preferisci, puoi spezzarle in 4 allenamenti più brevi.</p></div>
+    </div>
+    <div class="qa reveal">
+      <button>Sono fuori forma / parto da zero, va bene?<span class="ic">+</span></button>
+      <div class="ans"><p>È pensato proprio per te: la prima settimana è un reset, si parte leggeri e si sale di intensità una settimana alla volta.</p></div>
+    </div>
+    <div class="qa reveal">
+      <button>Quanti video sono?<span class="ic">+</span></button>
+      <div class="ans"><p>24 in tutto: 12 Full Body e 12 Abs, già organizzati nel calendario delle 6 settimane. Ogni video è usato una volta sola.</p></div>
+    </div>
+    <div class="qa reveal">
+      <button>Come ricevo il programma?<span class="ic">+</span></button>
+      <div class="ans"><p>Subito dopo il pagamento sblocchi l'accesso alla challenge dentro la community SUPER-ALE. Apri e parti dalla Settimana 1.</p></div>
+    </div>
+    <div class="qa reveal">
+      <button>I video restano miei per sempre?<span class="ic">+</span></button>
+      <div class="ans"><p>Sì. Paghi una volta sola e i video della challenge restano tuoi a vita: li rivedi e li rifai quando vuoi, anche dopo l'estate.</p></div>
+    </div>
+    <div class="qa reveal">
+      <button>E dopo le 6 settimane?<span class="ic">+</span></button>
+      <div class="ans"><p>Resti nella community con la squadra e decidi se continuare con i percorsi completi. Nessun obbligo.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FOOTER ===================== -->
+<footer>
+  <div class="wrap">
+    <div class="logo">SUPER<span>-</span>ALE</div>
+    <p style="color:rgba(255,255,255,.6);max-width:420px;margin:0 auto 6px">Allenati dove vuoi e quando vuoi.</p>
+    <p class="sign">Ci vediamo dentro.</p>
+    <p class="small">© SUPER-ALE · Alessandro Passalacqua · SUPER ESTATE</p>
+  </div>
+</footer>
+
+<script>
+/* Reveal on scroll */
+const io=new IntersectionObserver((es)=>{
+  es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});
+},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+/* Scroll fluido e affidabile per i bottoni interni (#anteprime, #cosa-ottieni, #offerta) */
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',e=>{
+    const id=a.getAttribute('href').slice(1);
+    if(!id) return;
+    const t=document.getElementById(id);
+    if(t){ e.preventDefault(); t.scrollIntoView({behavior:'smooth',block:'start'}); history.replaceState(null,'','#'+id); }
+  });
+});
+
+/* Copertina video: click → play */
+document.querySelectorAll('.vid .frame').forEach(f=>{
+  const v=f.querySelector('video'), b=f.querySelector('.vplay');
+  if(!v||!b) return;
+  b.addEventListener('click',()=>{
+    f.classList.add('playing');
+    v.controls=true;
+    v.play();
+  });
+  v.addEventListener('ended',()=>{ f.classList.remove('playing'); v.controls=false; });
+});
+
+/* FAQ accordion */
+document.querySelectorAll('.qa button').forEach(b=>{
+  b.addEventListener('click',()=>{
+    const qa=b.parentElement;const ans=qa.querySelector('.ans');
+    const open=qa.classList.contains('open');
+    document.querySelectorAll('.qa').forEach(x=>{x.classList.remove('open');x.querySelector('.ans').style.maxHeight=null;});
+    if(!open){qa.classList.add('open');ans.style.maxHeight=ans.scrollHeight+'px';}
+  });
+});
+</script>
+</body>
+</html>
